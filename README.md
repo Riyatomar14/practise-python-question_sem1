@@ -96,10 +96,87 @@ for i in range(n):
 
 ## 4.a)print whether the character is a letter or numeric digit or a special character 
 
+char = input("Enter a character: ")
 
+# Check if the character is a letter
+if 'a' <= char <= 'z' or 'A' <= char <= 'Z':
+    print(f"{char} is a letter.")
+# Check if the character is a numeric digit
+elif '0' <= char <= '9':
+    print(f"{char} is a numeric digit.")
+# If it's not a letter or numeric digit, consider it a special character
+else:
+    print(f"{char} is a special character.")
+## b) if the character is a letter,print whether the letter is uppercase or lowercase
+char = input("Enter a character: ")
 
+# Check if the character is a letter
+if 'a' <= char <= 'z' or 'A' <= char <= 'Z':
+    print(f"{char} is a letter.")
 
+## c)if character is numeric digit ,print its name in text(eg if input is 9, output is NINE.
 
+# Accept a character from the user
+char = input("Enter a character: ")
 
+# Check if the character is a numeric digit
+if '0' <= char <= '9':
+    # Dictionary mapping numeric digits to their names
+    digit_names = {'0': 'ZERO', '1': 'ONE', '2': 'TWO', '3': 'THREE', '4': 'FOUR', '5': 'FIVE', '6': 'SIX', '7': 'SEVEN', '8': 'EIGHT', '9': 'NINE'}
 
+    # Print the name of the numeric digit
+    print(f"{char} is {digit_names[char]}.")
+else:
+    print(f"{char} is not a numeric digit.")
+
+## 5.operation on a string 
+
+## a) find the frequency of a character on a string 
+    
+# Accept a string from the user
+input_string = input("Enter a string: ")
+
+# Accept a character whose frequency needs to be checked
+char_to_find = input("Enter the character to find its frequency: ")
+
+# Initialize a counter variable
+char_frequency = 0
+
+# Iterate through the string
+for char in input_string:
+    # Check if the current character matches the one we're looking for
+    if char == char_to_find:
+        char_frequency += 1
+
+# Print the result
+print(f"The frequency of '{char_to_find}' in the string is: {char_frequency}")
+
+## b)replace the character by another character in a string
+
+# Accept a string from the user
+input_string = input("Enter a string: ")
+
+# Accept the character to be replaced
+char_to_replace = input("Enter the character to be replaced: ")
+
+# Accept the character to replace with
+replacement_char = input("Enter the character to replace with: ")
+
+# Initialize an empty string to store the result
+result_string = ""
+
+# Iterate through the input string
+for char in input_string:
+    # Check if the current character is the one to be replaced
+    if char == char_to_replace:
+        # If yes, append the replacement character to the result string
+        result_string += replacement_char
+    else:
+        # If no, simply append the current character to the result string
+        result_string += char
+
+# Print the resulting string
+print(f"The modified string is: {result_string}")
+
+## c)
           

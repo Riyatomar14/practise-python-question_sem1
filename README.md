@@ -24,6 +24,9 @@ c=float(input("enter the value of c:"))
 A=roots(a,b,c)
 print("roots",A)
 
+
+
+
 ## 2.a)check if n is prime
 ##  b)generate allprime numbers till n
 ## c) generate first n prime numbers
@@ -42,6 +45,10 @@ num=int(input("enter the value:"))
 prime(num)
 
 
+
+
+
+
 def prime_upto_number(num):
    
     for i in range(2,num+1):
@@ -57,9 +64,31 @@ print(primes)
 
 
 
+def is_prime(num):
+    """Check if a number is prime."""
+    if num < 2:
+        return False
+    for i in range(2,num):
+        if num % i == 0:
+            return False
+    return True
+
+def generate_primes(n):
+    """Generate the first n prime numbers."""
+    primes = []
+    current_num = 2  # Start with the first prime number
+    while len(primes) < n:
+        if is_prime(current_num):
+            primes.append(current_num)
+        current_num += 1
+    return primes
 
 
+num_primes = int(input("Enter the number of prime numbers to generate: "))
 
+
+result = generate_primes(num_primes)
+print(f"The first {num_primes} prime numbers are: {result}")
 
 
 ## 3.pattern
@@ -79,6 +108,8 @@ for i in range(n):
     print()
 
 
+
+
    * * * * * * * * *
      * * * * * * *
       * * * * *
@@ -94,6 +125,10 @@ for i in range(n):
         print("*", end=" ")
     print()
 
+
+
+    
+
 ## 4.a)print whether the character is a letter or numeric digit or a special character 
 
 char = input("Enter a character: ")
@@ -107,12 +142,17 @@ elif '0' <= char <= '9':
 # If it's not a letter or numeric digit, consider it a special character
 else:
     print(f"{char} is a special character.")
+
+
+    
 ## b) if the character is a letter,print whether the letter is uppercase or lowercase
 char = input("Enter a character: ")
 
 # Check if the character is a letter
 if 'a' <= char <= 'z' or 'A' <= char <= 'Z':
     print(f"{char} is a letter.")
+
+
 
 ## c)if character is numeric digit ,print its name in text(eg if input is 9, output is NINE.
 
@@ -178,5 +218,33 @@ for char in input_string:
 # Print the resulting string
 print(f"The modified string is: {result_string}")
 
-## c)
+
+or  
+
+a=input("enter the string")
+b=input("you want replace")
+c=input("char on replace ")
+result=""
+for char in a:
+    if char==b:
+        result+=c
+        
+    else:
+        result+=char
+print(f"The modified string is: {result}")
+
+
+
+## c)remove the first occurence of the string
+
+
+
+
+
+
+
+
+## d) remove all occurence of a character from a string
+
+
           

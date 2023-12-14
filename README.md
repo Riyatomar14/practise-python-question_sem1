@@ -268,6 +268,54 @@ while(a in n):
 print(n)
 
 ## 6. WAP to swap the first n character of two strings
+def swap_first_n_chars(str1, str2, n):
+    if n > min(len(str1), len(str2)):
+        print("Error: n is greater than the length of one or both strings.")
+        return
+    
+    # Swap first n characters
+    swapped_str1 = str2[:n] + str1[n:]
+    swapped_str2 = str1[:n] + str2[n:]
+    
+    return swapped_str1, swapped_str2
 
+# Example usage
+string1 = "hello"
+string2 = "world"
+n = 2
+
+result1, result2 = swap_first_n_chars(string1, string2, n)
+
+print(f"After swapping first {n} characters:")
+print("String 1:", result1)
+print("String 2:", result2)
+
+## Write a function that accepts two strings and returns the indices of all the occurrences of the second string in the first string as a list. If the second string is not present in the first string then it should return -1
+def find_occurrences(main_str, sub_str):
+    occurrences = []
+    main_len, sub_len = len(main_str), len(sub_str)
+
+    if sub_len > main_len:
+        return -1  # Second string cannot be present in the first string if it's longer
+
+    for i in range(main_len - sub_len + 1):
+        if main_str[i:i + sub_len] == sub_str:
+            occurrences.append(i)
+
+    if not occurrences:
+        return -1  # Return -1 if the second string is not found
+    else:
+        return occurrences
+
+# Example usage
+string1 = "abababab"
+string2 = "aba"
+
+result = find_occurrences(string1, string2)
+
+if result == -1:
+    print(f"'{string2}' not found in '{string1}'")
+else:
+    print(f"Indices of occurrences of '{string2}' in '{string1}': {result}")
 
           

@@ -236,15 +236,38 @@ print(f"The modified string is: {result}")
 
 
 ## c)remove the first occurence of the string
-
-
-
-
-
-
+n=input("enter the string:")
+a=input("enter the char you want to remove:")
+result=" "
+for i in range(len(n)):
+    if n[i]==a:
+       d=n[0:i]
+       e=n[i+1:]
+       result=d+e
+       break
+if result=="":
+    print(a,"it is a empty string")
+else:
+    print("removing the first occurence of ",a, "in string",result)
 
 
 ## d) remove all occurence of a character from a string
+
+n=input("enter the string:")
+a=input("enter the char you want to remove:")
+
+while(a in n):
+    len(n)
+    for i in range(len(n)):
+      if n[i]==a:
+        d=n[0:i]
+        e=n[i+1:]
+        n=d+e
+        break
+   
+print(n)
+
+## 6. WAP to swap the first n character of two strings
 
 
           

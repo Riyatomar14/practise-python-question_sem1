@@ -290,7 +290,7 @@ print(f"After swapping first {n} characters:")
 print("String 1:", result1)
 print("String 2:", result2)
 
-## Write a function that accepts two strings and returns the indices of all the occurrences of the second string in the first string as a list. If the second string is not present in the first string then it should return -1
+## 7. Write a function that accepts two strings and returns the indices of all the occurrences of the second string in the first string as a list. If the second string is not present in the first string then it should return -1
 def find_occurrences(main_str, sub_str):
     occurrences = []
     main_len, sub_len = len(main_str), len(sub_str)
@@ -318,4 +318,203 @@ if result == -1:
 else:
     print(f"Indices of occurrences of '{string2}' in '{string1}': {result}")
 
+    
+## 8.WAP to create a list of the cubes of only the even integers appearing in the input list (may
+have elements of other types also) using the following:
+a. 'for' loop
+b. list comprehension
+
+a)
+
+def cubes_of_even_numbers_for_loop(input_list):
+    result = []
+    for element in input_list:
+        if type(element) == int and element % 2 == 0:
+            result.append(element**3)
+    return result
+
+# Example Usage:
+input_list = [1, 2, 3, 4, 5, 'a', 6, 7, 8, 'b', 9, 10]
+result_for_loop = cubes_of_even_numbers_for_loop(input_list)
+print(result_for_loop)
+
           
+b)
+
+def cubes_of_even_numbers_list_comprehension(input_list):
+    result = [x**3 for x in input_list if type(x) == int and x % 2 == 0]
+    return result
+
+# Example Usage:
+input_list = [1, 2, 3, 4, 5, 'a', 6, 7, 8, 'b', 9, 10]
+result_list_comprehension = cubes_of_even_numbers_list_comprehension(input_list)
+print(result_list_comprehension)
+
+
+## 9. WAP to read a file and
+a. Print the total number of characters, words and lines in the file.
+b. Calculate the frequency of each character in the file. Use a variable of dictionary
+type to maintain the count.
+c. Print the words in reverse order.
+d. Copy even lines of the file to a file named ‘File1’ and odd lines to another file
+named ‘File2.
+
+
+def count_chars_words_lines(filename):
+    total_chars = 0
+    total_words = 0
+    total_lines = 0
+    char_frequency = {}
+    reverse_words = []
+    
+    with open(filename, 'r') as file:
+        for line_number, line in enumerate(file, start=1):
+            total_lines += 1
+            total_chars += len(line)
+            
+            words = line.split()
+            total_words += len(words)
+            
+            for char in line:
+                if char.isalpha():  # Consider only alphabetic characters
+                    char_frequency[char] = char_frequency.get(char, 0) + 1
+            
+            reverse_words.extend(reversed(words))
+            
+            # Copy lines to 'File1' and 'File2'
+            if line_number % 2 == 0:
+                with open('File1', 'a') as file1:
+                    file1.write(line)
+            else:
+                with open('File2', 'a') as file2:
+                    file2.write(line)
+
+    # Print results
+    print(f"Total characters: {total_chars}")
+    print(f"Total words: {total_words}")
+    print(f"Total lines: {total_lines}")
+    
+    print("\nCharacter frequency:")
+    for char, count in char_frequency.items():
+        print(f"{char}: {count}")
+    
+    print("\nWords in reverse order:")
+    print(" ".join(reverse_words))
+
+# Example usage:
+filename = 'your_file.txt'  # Replace with the actual file name
+count_chars_words_lines(filename)
+
+## 10.10. WAP to define a class Point with coordinates x and y as attributes. Create relevant methods and print the objects. Also define a method distance to calculate the distance between any two point objects.
+
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def print_coordinates(self):
+        print(f"Point coordinates: ({self.x}, {self.y})")
+
+    def distance(self, other_point):
+        # Calculate distance without using inbuilt functions
+        dx = self.x - other_point.x
+        dy = self.y - other_point.y
+        distance_squared = dx ** 2 + dy ** 2
+        distance = distance_squared ** 0.5
+        return distance
+
+# Example Usage:
+point1 = Point(1, 2)
+point2 = Point(4, 6)
+
+# Print coordinates of the points
+point1.print_coordinates()
+point2.print_coordinates()
+
+# Calculate and print the distance between two points
+distance_between_points = point1.distance(point2)
+print(f"Distance between points: {distance_between_points}")
+
+
+## 11. Write a function that prints a dictionary where the keys are numbers between 1 and 5 and the values are cubes of the keys.
+
+def create_cubes_dictionary():
+    cubes_dict = {}
+    for i in range(1, 6):
+        cubes_dict[i] = i * i * i
+    return cubes_dict
+
+# Example Usage:
+result_dict = create_cubes_dictionary()
+print(result_dict)
+
+## 12.Consider a tuple t1=(1, 2, 5, 7, 9, 2, 4, 6, 8, 10). WAP to perform following operations:
+a) Print half the values of the tuple in one line and the other half in the next line.
+b) Print another tuple whose values are even numbers in the given tuple.
+c) Concatenate a tuple t2=(11,13,15) with t1.
+d) Return maximum and minimum value from this tuple
+
+
+def tuple_operations(t1):
+    # a) Print half the values of the tuple in one line and the other half in the next line.
+    half_length = len(t1) // 2
+    print("Half of the values of the tuple in one line:", t1[:half_length])
+    print("Other half of the values in the next line:", t1[half_length:])
+
+    # b) Print another tuple whose values are even numbers in the given tuple.
+    even_numbers_tuple = tuple(x for x in t1 if x % 2 == 0)
+    print("Tuple with even numbers:", even_numbers_tuple)
+
+    # c) Concatenate a tuple t2=(11, 13, 15) with t1.
+    t2 = (11, 13, 15)
+    concatenated_tuple = t1 + t2
+    print("Concatenated tuple:", concatenated_tuple)
+
+    # d) Return maximum and minimum value from this tuple.
+
+# Calculate maximum and minimum without using built-in functions
+    max_value = t1[0]
+    min_value = t1[0]
+
+    for element in t1:
+        if element > max_value:
+            max_value = element
+        if element < min_value:
+            min_value = element
+
+# Print maximum and minimum values
+    print("Maximum value:", max_value)
+    print("Minimum value:", min_value)
+
+t1=(11,13,15)
+# Perform operations and print results
+result = tuple_operations(t1)
+print("\nMaximum and Minimum values from the tuple:", result)
+
+
+## 13.WAP to accept a name from a user. Raise and handle appropriate exception(s) if the text entered by the user contains digits and/or special characters.
+
+
+def validate_name(name):
+    for char in name:
+        if not char.isalpha() and char != ' ':
+            raise ValueError("Invalid name! Name should contain only letters and spaces.")
+
+try:
+    # Accept a name from the user
+    user_input = input("Enter your name: ")
+    
+    # Validate the name
+    validate_name(user_input)
+    
+    # If the name is valid, print a success message
+    print("Name entered:", user_input)
+
+except ValueError as e:
+    # Handle the exception and print the error message
+    print("Error:", e)
+
+
+
+
